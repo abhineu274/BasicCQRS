@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BasicCQRS.Services
 {
-    public class EmployeeRepository : IEmployeeRepository
+    public class EmployeeRepository : IEmployeeRepository //implements IEmployeeRepository interface
     {
-        private readonly DataContext _context;
+        private readonly DataContext _context; // Database context
 
         public EmployeeRepository(DataContext context)
         {
-            _context = context;
+            _context = context; // Inject database context based on the configuration in Program.cs
         }
 
         // Get all employees
@@ -69,7 +69,6 @@ namespace BasicCQRS.Services
         {
             return await _context.Employees.FirstOrDefaultAsync(e => e.Username == username);
         }
-
     }
 
 }

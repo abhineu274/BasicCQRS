@@ -8,9 +8,9 @@ namespace BasicCQRS.Handlers.CommandHandlers
 {
     public class LoginCommandHandler : IRequestHandler<LoginCommand, LoginResponse>
     {
-        private readonly ITokenService _tokenService;
+        private readonly ITokenService _tokenService; // Service for generating tokens
         private readonly IEmployeeRepository _employeeRepository;
-        private readonly IPasswordService _passwordService;
+        private readonly IPasswordService _passwordService; // Service for hashing and verifying passwords
 
         public LoginCommandHandler(ITokenService tokenService, IEmployeeRepository employeeRepository, IPasswordService passwordService)
         {

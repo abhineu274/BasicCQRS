@@ -3,6 +3,7 @@ using FluentValidation;
 
 public class CreateEmployeeCommandValidator : AbstractValidator<CreateEmployeeCommand>
 {
+    // Create a validator for the CreateEmployeeCommand class
     public CreateEmployeeCommandValidator()
     {
         RuleFor(x => x.Name).NotEmpty().WithMessage("Name is required.");

@@ -17,8 +17,8 @@ namespace BasicCQRSHandlerTests.Handlers
         public GetEmployeeListQueryHandlerTests()
         {
             _employeeRepositoryMock = new Mock<IEmployeeRepository>();
-            _mapperMock = new Mock<IMapper>();
-            _handler = new GetEmployeeListQueryHandler(_employeeRepositoryMock.Object, _mapperMock.Object);
+            _mapperMock = new Mock<IMapper>(); // Mocking the IMapper interface
+            _handler = new GetEmployeeListQueryHandler(_employeeRepositoryMock.Object, _mapperMock.Object); // Creating an instance of the GetEmployeeListQueryHandler class
         }
 
         [Fact]
@@ -41,11 +41,14 @@ namespace BasicCQRSHandlerTests.Handlers
                 .ReturnsAsync(employees);
             _mapperMock.Setup(m => m.Map<List<EmployeeDTO>>(employees))
                 .Returns(employeeDTOs);
+            // Mocking the return values for the repository and mapper
 
             var query = new GetEmployeeListQuery();
 
             // Act
             var result = await _handler.Handle(query, CancellationToken.None);
+            // Calling the Handle method of the handler
+            //As we are already mocking the repository and mapper, it will return the mocked values
 
             // Assert
             Assert.NotNull(result);

@@ -7,13 +7,13 @@ namespace BasicCQRS.Middleware
 {
     public class ErrorHandlingMiddleware
     {
-        private readonly RequestDelegate _next;
-        private readonly ILogger<ErrorHandlingMiddleware> _logger;
+        private readonly RequestDelegate _next; // RequestDelegate is a delegate that represents the next middleware in the pipeline
+        private readonly ILogger<ErrorHandlingMiddleware> _logger; // ILogger is a generic interface for logging.
 
         public ErrorHandlingMiddleware(RequestDelegate next, ILogger<ErrorHandlingMiddleware> logger)
         {
             _next = next;
-            _logger = logger;
+            _logger = logger; //Inject the logger based on the DI from Program.cs. By default, the logger is configured to log to the console.
         }
 
         public async Task InvokeAsync(HttpContext context)

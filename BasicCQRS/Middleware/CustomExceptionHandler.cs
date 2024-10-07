@@ -4,7 +4,7 @@ using System.Text.Json;
 
 namespace BasicCQRS.Middleware
 {
-    public class CustomExceptionHandler : IExceptionHandler
+    public class CustomExceptionHandler : IExceptionHandler // Implement the IExceptionHandler interface
     {
         public async ValueTask<bool> TryHandleAsync(HttpContext context, Exception exception, CancellationToken cancellationToken)
         {

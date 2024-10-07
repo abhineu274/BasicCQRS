@@ -12,13 +12,13 @@ namespace BasicCQRSControllerTests.Controller
 {
     public class EmployeesControllerTests
     {
-        private readonly Mock<IMediator> _mediatorMock;
-        private readonly EmployeesController _controller;
+        private readonly Mock<IMediator> _mediatorMock; // Mock IMediator
+        private readonly EmployeesController _controller; // Controller to test
 
         public EmployeesControllerTests()
         {
-            _mediatorMock = new Mock<IMediator>();
-            _controller = new EmployeesController(_mediatorMock.Object);
+            _mediatorMock = new Mock<IMediator>(); // Create a new mock of IMediator
+            _controller = new EmployeesController(_mediatorMock.Object); // Create a new instance of the controller with the mock object
         }
 
         private string GenerateJwtToken()
@@ -28,19 +28,21 @@ namespace BasicCQRSControllerTests.Controller
         }
 
         [Fact]
-        public async Task Get_ReturnsOkResult_WithEmployeeList()
+        public async Task Get_ReturnsOkResult_WithEmployeeList() // Test the Get method of the controller
         {
             // Arrange
             var employeeList = new List<EmployeeDTO>
-        {
+            {
             new EmployeeDTO {  Name = "John Doe" },
             new EmployeeDTO {  Name = "Jane Doe" }
-        };
+            };
             _mediatorMock.Setup(m => m.Send(It.IsAny<GetEmployeeListQuery>(), default))
                 .ReturnsAsync(employeeList);
+            // Mock the return value for a list of employees
 
             // Act
             var result = await _controller.Get();
+            //Controller calls the Get method but as we are already mocking the mediator, it will return the mocked value
 
             // Assert
             var okResult = Assert.IsType<OkObjectResult>(result.Result);

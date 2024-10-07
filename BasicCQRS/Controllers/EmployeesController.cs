@@ -3,7 +3,6 @@ using BasicCQRS.Data.Query;
 using BasicCQRS.DTO;
 using BasicCQRS.Filters;
 using BasicCQRS.Miscellaneous;
-using BasicCQRS.Models;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -12,7 +11,7 @@ namespace BasicCQRS.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [ServiceFilter(typeof(LoggingActionFilter))]
+    [ServiceFilter(typeof(LoggingActionFilter))] // Apply the LoggingActionFilter to all actions in this controller
     public class EmployeesController : ControllerBase
     {
         private readonly IMediator _mediator;

@@ -1,6 +1,6 @@
 ﻿namespace BasicCQRS.DTO
 {
-    public class EmployeeDTO
+    public class EmployeeDTO // Data Transfer Object (DTO) for Employee
     {
         public string Name { get; set; }
         public string Address { get; set; }
