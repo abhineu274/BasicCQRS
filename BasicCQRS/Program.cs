@@ -179,7 +179,7 @@ void ApplyMigration()
 
 
 /*
- * EF Core vs MediatR
+ * EF Core vs MediatR - This is wrong : There should be EFCore vs Dapper not this
  * EF Core - Controller -> Service + Service Interface -> DbContext -> Model classes with annotations
  * MediatR - COntroller -> Commands/Queries -> Respective Handlers -> DbContext -> Model classes with/without annotations
  * 
@@ -226,4 +226,46 @@ void ApplyMigration()
  * Registered IPasswordService and PasswordService in DI container
  * Injected PasswordService in CreateEmployeeCommandHandler and used it hash the password while creating the employee
  * Also injected PasswordService in LoginCommandHandler and used it to verify the password
+ */
+
+
+
+/*
+ * Filters : Action Filters
+ * ADO .Net - THin ORM layer over dapper
+ * .Net Framework vs .Net Core
+ * Diamond Problem 
+ * Types of classes
+ * 
+ * 
+ * Dapper vs EF Core vs ADO .Net
+ * ADO .Net - Old way of doing things, not recommended for new projects - Directly interacts with database using SqlConnection, SqlCommand, SqlDataReader etc.
+ * Dapper - Lightweight ORM, faster than EF Core, but requires more manual work for mapping and queries. It is a thin layer over ADO .Net.
+ * EF Core - Full-fledged ORM, provides a lot of features like change tracking, lazy loading, etc. It is slower than Dapper but easier to use and maintain.
+ * 
+ * 
+ * Types of classes in C#:
+ * Parent class, Child class, Abstract class, Interface, Static class, Partial class, Sealed class, Dynamic class, Record class, Struct
+ * Abstract Class - Cannot be instantiated, can have abstract methods (without body) and non-abstract methods (with body), can have fields, properties, and events.
+ * Static Class - Cannot be instantiated, all members are static, cannot have instance members, used for utility methods or constants.
+ * Partial Class - Can be split across multiple files, allows for better organization of code, all parts must be in the same namespace and assembly.
+ * Sealed Class - Cannot be inherited, used to prevent further inheritance, can be instantiated.
+ * Dynamic Class - Can have members added at runtime, used for scenarios where the type is not known at compile time, requires `using System.Dynamic;`.
+ * Record Class - Introduced in C# 9, used for immutable data structures, provides built-in equality checks, can have properties and methods.
+ * 
+ * Inheritance in C#:
+ * Single Inheritance - A class can inherit from only one base class.
+ * Multiple Inheritance - A class can implement multiple interfaces but cannot inherit from multiple classes. Not supported in C# directly due to the diamond problem.
+ * Multilevel
+ * 
+ * 
+ * 
+ * 
+ * "" vs '' - There is a difference between signle quotes in c# and double quotes
+ * 
+ * dynamic
+ * virtual
+ * 
+ * @string use
+ * 
  */
